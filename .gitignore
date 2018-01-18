@@ -31,3 +31,5 @@ rocksdb
 *.vcxproj*
 *.opensdf
 *.v12.suo
+
+ops/output/*

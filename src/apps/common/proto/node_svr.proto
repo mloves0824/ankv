@@ -1,0 +1,31 @@
+package ankv.node;
+option cc_generic_services = true;
+
+enum Type {
+	INFOSERVER = 1;
+}
+
+enum StatusCode {
+	kOk = 0;
+}
+
+message Node {
+	required string ip = 1;
+	required int32 port = 2;
+}
+
+// InfoServer
+message InfoServerReq {
+	optional string table_name = 1; 
+}
+
+message InfoServerResp {
+	required int64 epoch = 1;
+	repeated string table_names = 2;
+	required Node cur_meta = 3;
+	required bool meta_renewing = 4; 
+}
+
+service InfoServerService {
+      rpc InfoServer(InfoServerReq) returns (InfoServerResp);
+};
